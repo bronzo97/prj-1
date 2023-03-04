@@ -1,45 +1,22 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('shared.header')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <form action="{{ url('link') }}" method="POST">
+        @csrf
+        <h1>Iscriviti alla nostra newsletter</h1>
 
-        <!-- Styles -->
-        <style>
-            .container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="container">
-            <form action="{{ url('messaggio') }}" method="post">
-                @csrf
-                    <label for="name">Nome:</label>
-                    
-                    <input type="text" name="name" id="name" value="{{session('name')}}">
-                    <br>
-                    <label for="tel">Telefono:</label>
-                    <input type="text" name="tel" id="tel" value="{{session('tel')}}">
-                    <br>
-                    <label for="email">E-mail:</label>
-                    <input type="email" name="email" id="email" value="{{session('email')}}">
-                    <br>
-                    <label for="mess">Messaggio:</label>
-                    <textarea name="mess" id="mess" cols="30" rows="10">{{session('mess')}}</textarea>
-                    <br>
-                    <input type="submit" value="invia">
-            </form>
-        </div>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" value="{{session('nome')}}"> <br>
+
+        <label for="nome">Telefono</label>
+        <input type="tel" name="telefono" value="{{session('telefono')}}"> <br>
+        <label for="email">Email</label>
+        <input type="email" name="email" value="{{session('mail')}}"> <br>
+        <label for="textarea">Il tuo messaggio</label> <br>
+        <textarea name="textarea" cols="40" rows="7">{{session('messaggio')}}</textarea> <br>
+        <input type="submit" value="Invia messaggio">
         
-    </body>
-</html>
+    </form>
+
+@endsection

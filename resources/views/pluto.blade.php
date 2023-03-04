@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -11,17 +10,12 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
         <!-- Styles -->
-
+       
     </head>
-    <body class="antialiased">
-        <form action="{{ url('messaggio') }}" method="get">
-            
-            {{$name}}
-            {{$tel}}
-            {{$email}}
-            {{$mess}}
-            <input type="submit" value="invia">
-        </form>
-        
-    </body>
+<body>
+<form action= "{{url('pippo')}}" method="GET">
+{{$testo}}
+<input type="submit">
+</form>
+</body>
 </html>
